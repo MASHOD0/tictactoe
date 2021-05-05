@@ -95,3 +95,38 @@ def result(board, action):
             return boardcopy
     except Exception:
         print('Spot already occupied')
+
+def winner(board):
+    """
+    Returns the winner of the game, if there is one.
+    """
+    # check rows
+
+    new_board = copy.deepcopy(board)
+    for i in range(3):
+        for j in range(3):
+            new_board[i][j] = new_board[j][i]
+    
+    for row in board:
+        x_counter = row.count(X)
+        o_counter = row.count(O)
+        if x_counter == 3:
+            return X
+        if o_counter == 3:
+            return O
+    # check columns
+    for i in range(3):
+        if board[0][i] == board[1][i] == board[2][i] == X:
+            return X
+        elif board[0][i] == board[1][i] == board[2][i] == O:
+            return O
+        
+        # checking diagonals
+    if board[0][0] == O and board[1][1] == O and board[2][2] == O:
+        return O
+    if board[0][0] == X and board[1][1] == X and board[2][2] == X:
+        return X
+    if board[0][2] == O and board[1][1] == O and board[2][0] == O:
+        return O
+    if board[0][2] == X and board[1][1] == X and board[2][0] == X:
+        return X
