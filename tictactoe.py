@@ -66,3 +66,32 @@ def actions(board):
                 possible_moves.add((i, j))
                 
     return possible_moves
+
+
+def actions(board):
+    """
+    Returns set of all possible actions (i, j) available on the board.
+    """
+    possible_moves = set()
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == EMPTY:
+                possible_moves.add((i, j))
+                
+    return possible_moves
+
+
+def result(board, action):
+    """
+    Returns the board that results from making move (i, j) on the board.
+    """
+    boardcopy = copy.deepcopy(board)
+
+    try:
+        if boardcopy[action[0]][action[1]] != EMPTY:
+            raise Exception
+        else:
+            boardcopy[action[0]][action[1]] = player(boardcopy)
+            return boardcopy
+    except Exception:
+        print('Spot already occupied')
