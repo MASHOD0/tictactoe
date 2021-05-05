@@ -153,3 +153,23 @@ def terminal(board):
     if winner(board) == O:
         return -1
     return 0
+
+
+
+def minimax(board):
+    """
+    Returns the optimal action for the current player on the board.
+    """
+    optimal_action = (1, 1)
+    if board == initial_state():
+        return optimal_action
+
+    if terminal(board):
+        return None
+ 
+    currentPlayer = player(board)
+    if currentPlayer == X:
+        return max_value(board)[1]
+    else:
+        return min_value(board)[1]
+
