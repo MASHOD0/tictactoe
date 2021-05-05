@@ -173,3 +173,28 @@ def minimax(board):
     else:
         return min_value(board)[1]
 
+
+def max_value(board):
+
+    if terminal(board):
+
+        return (utility(board), None)
+
+    value = -2
+
+    optimal_action = None
+    for action in actions(board):
+
+        possible_result = min_value(result(board, action))
+
+        if possible_result[0] > value:
+
+            value = possible_result[0]
+
+            optimal_action = action
+
+        if value == 1:
+            break
+
+    return (value, optimal_action)
+
