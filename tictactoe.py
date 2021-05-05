@@ -130,3 +130,15 @@ def winner(board):
         return O
     if board[0][2] == X and board[1][1] == X and board[2][0] == X:
         return X
+
+def terminal(board):
+    """
+    Returns True if game is over, False otherwise.
+    """
+    if winner(board) == None:
+        for i in range(3):
+            for j in range(3):
+                if board[i][j] == EMPTY:
+                    return False
+
+    return True
