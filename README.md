@@ -15,5 +15,5 @@ pip3 install -r requirements.txt
 ```
 4. run the program by executing this command in your terminal.
 ```
-python tictactoe.py
+python runner.py
 ```
