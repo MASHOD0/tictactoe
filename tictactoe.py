@@ -143,7 +143,7 @@ def terminal(board):
 
     return True
 
-    def utility(board):
+def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
