@@ -45,7 +45,7 @@ def player(board):
         return X 
     return O
 
-    def initial_state():
+def initial_state():
     """
     Returns starting state of the board.
     """
